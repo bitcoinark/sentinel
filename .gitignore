@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
 .env
-config/*.json  # If you add real configs here
+config/*.json  #  If you add real configs here
+sentinel.log    # Log file
