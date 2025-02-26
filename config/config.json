@@ -1,1 +1,9 @@
-
+{
+  "rpc_url": "http://user:pass@localhost:8332",
+  "electrs_url": "http://localhost:50001",
+  "txid": "abc123...",
+  "vout": 0,
+  "cadence_seconds": 300,
+  "email_to": "you@example.com",
+  "sms_to": "+1234567890"
+}
