@@ -1,1 +1,4 @@
-
+__pycache__/
+*.pyc
+.env
+config/*.json  # If you add real configs here
