@@ -1,6 +1,6 @@
 # sentinel
 
-A Bitcoin UTXO monitoring tool for StartOS. Checks if a configured UTXO is spent and sends email/SMS alerts.
+A Bitcoin UTXO monitoring tool with support for Bitcoin Core and electrs. Periodically confirms that a configured UTXO is stil unspent and sends email/SMS alerts if not.
 
 ## Features
 - Monitors a specific UTXO using Bitcoin Core or electrs.
