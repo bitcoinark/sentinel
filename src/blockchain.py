@@ -13,6 +13,7 @@ class BlockchainChecker:
     def is_utxo_unspent_rpc(self):
         """Check UTXO status using Bitcoin Core RPC."""
         try:
+            self.logger.debug("Checking UTXO with Bitcoin Core RPC")
             result = self.rpc.gettxout(self.txid, self.vout)
             return result is not None  # Returns None if spent, dict if unspent
         except JSONRPCException as e:
@@ -22,6 +23,7 @@ class BlockchainChecker:
     def is_utxo_unspent_electrs(self):
         """Check UTXO status using electrs REST API."""
         try:
+            self.logger.debug("Checking UTXO with electrs")
             # Fetch transaction details
             tx_url = f"{self.electrs_url}/tx/{self.txid}"
             response = requests.get(tx_url)
@@ -58,7 +60,7 @@ class BlockchainChecker:
             return False
         if self.last_status == "unspent" and not current_status:
             self.last_status = "spent"
-            self.logger.info(f"UTXO spent: txid={self.txid"}, vout={self.vout}")
+            self.logger.info(f"UTXO spent: txid={"self.txid"}, vout={self.vout}")
             return True
         self.last_status = "unspent" if current_status else "spent"
         return False

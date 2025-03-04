@@ -2,9 +2,9 @@ import json
 import os
 import logging
 from dotenv import load_dotenv
-from blockchain import BlockchainChecker
-from notifier import Notifier
-from scheduler import Scheduler
+from src.blockchain import BlockchainChecker
+from src.notifier import Notifier
+from src.scheduler import Scheduler
 
 # Load environment variables
 load_dotenv()

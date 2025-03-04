@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import Mock, patch
-from notifier import Notifier
+from src.notifier import Notifier
 
 @pytest.fixture
 def logger():
@@ -31,9 +31,13 @@ def test_send_email_failure(notifier):
         notifier.logger.error.assert_called_with("Failed to send email: SMTP error")
 
 def test_send_sms_success(notifier):
-    with patch("twilio.rest.Client") as mock_client:
+    with patch("src.notifier.Client") as mock_client:
         notifier.send_sms("Test message")
-        mock_client.return_value.messages.create.assert_called()
+        mock_client.return_value.messages.create.assert_called_with(
+            to="+1234567890",
+            from_="+0987654321",
+            body="Test message"
+        )
         notifier.logger.info.assert_called_with("SMS sent successfully")
 
 def test_notify_calls_both(notifier):

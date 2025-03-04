@@ -1,6 +1,8 @@
+import sys
+print(sys.path)
 import pytest
 from unittest.mock import Mock, patch
-from blockchain import BlockchainChecker
+from src.blockchain import BlockchainChecker
 
 @pytest.fixture
 def logger():
@@ -40,4 +42,4 @@ def test_check_utxo_transition(blockchain):
     with patch.object(blockchain, "is_utxo_unspent", side_effect=[True, False]):
         assert blockchain.check_utxo() is False  # Still unspent
         assert blockchain.check_utxo() is True   # Just spent
-        blockchain.logger.info.assert_called_with("UTXO spent: txid=abc123, vout=0")
+        blockchain.logger.info.assert_called_with("UTXO spent: txid=self.txid, vout=0")

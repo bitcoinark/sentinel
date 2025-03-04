@@ -1,5 +1,39 @@
+# Python-specific
 __pycache__/
-*.pyc
-.env
-config/*.json  #  If you add real configs here
-sentinel.log    # Log file
+*.py[cod]  # Compiled Python files
+*.pyo
+*.pyd
+.Python
+venv/      # Virtual environment folder
+*.egg-info/
+dist/      # Distribution/build folders
+build/
+
+# Environment variables and secrets
+.env       # Actual env file with API keys
+*.env      # Any other env files
+config/*.json  # If you store real configs here (not examples)
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Editor/IDE files
+.vscode/   # VS Code settings
+.idea/     # JetBrains IDEs (PyCharm)
+*.swp      # Vim swap files
+
+# Docker
+*.dockerignore
+Dockerfile.*  # Backup or test Dockerfiles
+
+# OS-generated files
+.DS_Store  # macOS Finder files
+Thumbs.db  # Windows thumbnail cache
+
+# Testing and coverage
+*.coverage
+coverage.xml
+htmlcov/
+pytest_cache/
